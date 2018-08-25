@@ -9,7 +9,7 @@ package rentalcar;
  *
  * @author James
  */
-public class RentalCar {
+public class AppRentalCar {
 
     /**
      * @param args the command line arguments
