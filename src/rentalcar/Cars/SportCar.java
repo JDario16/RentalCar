@@ -9,6 +9,9 @@ package rentalcar.Cars;
  *
  * @author James
  */
-public interface SportCar{
-  public abstract void RentarSport();
+public class SportCar extends Car{
+    @Override
+    public void rentar(){
+        System.out.println("Has rentado un carro familiar");
+    }
 }

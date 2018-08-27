@@ -9,6 +9,9 @@ package rentalcar.Cars;
  *
  * @author James
  */
-public interface StandarCar{
-   public abstract void RentarStandar();
+public class StandarCar extends Car{
+    @Override
+    public void rentar(){
+        System.out.println("Has rentado un carro estandar");
+    }
 }
