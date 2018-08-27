@@ -9,6 +9,6 @@ package rentalcar.Cars;
  *
  * @author James
  */
-public class Car {
-    
+public interface Car {
+    public abstract void built();
 }

@@ -9,6 +9,6 @@ package rentalcar.Cars;
  *
  * @author James
  */
-public class FamiliarCar {
+public class FamiliarCar{
     
 }

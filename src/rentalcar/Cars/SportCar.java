@@ -9,6 +9,6 @@ package rentalcar.Cars;
  *
  * @author James
  */
-public class SportCar {
-    
+public interface SportCar{
+  public abstract void RentarSport();
 }

@@ -4,11 +4,14 @@
  * and open the template in the editor.
  */
 package rentalcar;
-
+import rentalcar.Cars.FamiliarCar;
 /**
  *
  * @author James
  */
-public class RentalFamiliar {
-    
+public class RentalFamiliar implements FamiliarCar{
+    @Override
+    public void RentarFamiliar(){
+        System.out.println("Prestaste un carro familiar");
+    }
 }
