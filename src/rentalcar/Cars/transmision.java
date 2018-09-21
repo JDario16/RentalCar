@@ -9,9 +9,6 @@ package rentalcar.Cars;
  *
  * @author James
  */
-public class StandarCar extends Car{
-    @Override
-    public void rentar(){
-        System.out.println("Has rentado un carro estandar");
-    }
+public interface transmision {
+    public String getTrans();
 }

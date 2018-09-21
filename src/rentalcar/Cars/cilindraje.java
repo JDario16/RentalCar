@@ -9,6 +9,6 @@ package rentalcar.Cars;
  *
  * @author James
  */
-public abstract class Car {
-    public abstract void rentar();
+public interface cilindraje {
+    public String getCil();
 }

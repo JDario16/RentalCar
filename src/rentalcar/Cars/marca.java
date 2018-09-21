@@ -9,9 +9,6 @@ package rentalcar.Cars;
  *
  * @author James
  */
-public class FamiliarCar extends Car{
-    @Override
-    public void rentar(){
-        System.out.println("Has rentado un carro familiar");
-    }
+public interface marca {
+    public String getMarca();
 }
