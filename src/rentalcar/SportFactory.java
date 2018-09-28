@@ -24,7 +24,7 @@ public class SportFactory implements CarFactory {
     private String tipo = "Deportivo";
     
 
-    public SportFactory(String color,String marca,String placa, String trans, String cil, String puesto){
+    public SportFactory(String color,String marca,String placa, String cil, String trans, String puesto){
         this.color = createColor(color);
         this.marca = createMarca(marca);
         this.placa = createPlaca(placa);

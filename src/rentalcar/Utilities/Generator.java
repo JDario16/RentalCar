@@ -47,9 +47,7 @@ public class Generator {
         Customer[] customers = new Customer[cantidad];
         Customer customer;
         int randName, randId, randGen,randType;  
-        System.out.println("Before map");
         HashMap<Integer, Pair<String, Pair<String, String>>> mapa = Data.nombres();
-        System.out.println("After map");
         for(int i=0; i < cantidad;i++){
             randName = rand.nextInt(mapa.size());
             randId = rand.nextInt(900) + 100;

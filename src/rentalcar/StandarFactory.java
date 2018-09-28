@@ -24,7 +24,7 @@ public class StandarFactory implements CarFactory {
     private String tipo = "Estandar";
     
 
-    public StandarFactory(String color,String marca,String placa, String trans, String cil, String puesto){
+    public StandarFactory(String color,String marca,String placa, String cil, String trans, String puesto){
         this.color = createColor(color);
         this.marca = createMarca(marca);
         this.placa = createPlaca(placa);

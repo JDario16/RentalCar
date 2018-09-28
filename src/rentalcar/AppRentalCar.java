@@ -22,27 +22,22 @@ public class AppRentalCar {
     //Cantidad de clientes, de carros, y tipos de carro
     private AppRentalCar(int cCustomer, int cCar, int tCar) {
         this.idRenta = 1;
-        System.out.println("Before rent");
         rentalTransation(cCustomer, cCar, tCar);
-        System.out.println("After rent");
     }
 
     public static AppRentalCar getInstance(int cCustomer, int cCar, int tCar) {
-        System.out.println("Before In");
         if (instance == null) {
             instance = new AppRentalCar(cCustomer, cCar, tCar);
         }
-        System.out.println("After IN");
         return instance;
     }
 
     private void rentalTransation(int cCustomer, int cCar, int tCar) {
+        Random rand = new Random();
         Scanner sc = new Scanner(System.in);
         int cantidadAutos = cCar;
         Stack<CarFactory>[] carros = Generator.generadorCar(tCar, cantidadAutos);
-        System.out.println("Before cost");
         Customer[] customer = Generator.generadorCustomer(cCustomer);
-        System.out.println("After cost");
         int n, m = 0;
         RentalTransaction r;
         while (cantidadAutos != 0) {
@@ -71,7 +66,7 @@ public class AppRentalCar {
                     }
                 }
             }
-            r = new RentalTransaction(idRenta, "" + java.time.LocalDate.now(), customer[n - 1], carros[m - 1].pop());
+            r = new RentalTransaction(idRenta, "" + java.time.LocalDate.now(), (rand.nextInt(10-1)+1) + "0000", customer[n - 1], carros[m - 1].pop());
             cantidadAutos--;
             idRenta++;
         }

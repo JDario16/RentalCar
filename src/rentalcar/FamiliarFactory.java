@@ -24,7 +24,7 @@ public class FamiliarFactory implements CarFactory {
     private String tipo = "Familiar";
     
 
-    public FamiliarFactory(String color,String marca,String placa, String trans, String cil, String puesto){
+    public FamiliarFactory(String color,String marca,String placa, String cil, String trans, String puesto){
         this.color = createColor(color);
         this.marca = createMarca(marca);
         this.placa = createPlaca(placa);

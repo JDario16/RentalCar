@@ -11,7 +11,6 @@ import rentalcar.Utilities.Generator;
  */
 public class RentalMain {
     public static void main(String[] args) {
-        System.out.println("Main");
         AppRentalCar rentalCar = AppRentalCar.getInstance(5, 5, 3);
     }
 }
