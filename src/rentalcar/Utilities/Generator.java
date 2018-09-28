@@ -47,14 +47,15 @@ public class Generator {
         Customer[] customers = new Customer[cantidad];
         Customer customer;
         int randName, randId, randGen,randType;  
-        HashMap<Integer, Pair<String, Pair<String, String>>> nombres = Data.nombres();
+        System.out.println("Before map");
+        HashMap<Integer, Pair<String, Pair<String, String>>> mapa = Data.nombres();
+        System.out.println("After map");
         for(int i=0; i < cantidad;i++){
-            randName = rand.nextInt(nombres.size());
-            randGen = rand.nextInt(nombres.size());
-            randType = rand.nextInt(nombres.size());
+            randName = rand.nextInt(mapa.size());
             randId = rand.nextInt(900) + 100;
-            
-            customer = new Customer(randId, nombres.get(), nombres.get(randGen), nombres.get(randType));
+            Pair<String, Pair<String, String>> pairName = mapa.get(randName);
+            Pair<String, String> pairGen = pairName.getValue();
+            customer = new Customer(randId, pairName.getKey(), pairGen.getKey(), pairGen.getValue());
             customers[i] = customer;
         }
         return customers; 

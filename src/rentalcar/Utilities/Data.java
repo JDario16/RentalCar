@@ -16,24 +16,26 @@ public class Data{
 
     public static HashMap<Integer, Pair<String, Pair<String,String>>> nombres(){
         HashMap<Integer, Pair<String, Pair<String,String>>> map = new HashMap();
-        String temp = "Daniel Gonzales"
-        +" Laura Naranjo"
-        +" Marlon Sanchez"
-        +" Alexander Narvaez"
-        +" Camila Alonso"
-        +" Saira Velez"
-        +" Jose Delgado"
-        +" Esteban Restrepo"    
-        +" Ezio Auditore"
-        +" Edward Kenwey";
+        String temp = "Daniel Gonzales ,"
+        +"Laura Naranjo,"
+        +"Marlon Sanchez,"
+        +"Alexander Narvaez,"
+        +"Camila Alonso,"
+        +"Saira Velez,"
+        +"Jose Delgado,"
+        +"Esteban Restrepo,"    
+        +"Ezio Auditore,"
+        +"Edward Kenwey";
         String temp2 = "Hombre Mujer Hombre Hombre Mujer Mujer Hombre Hombre Hombre Hombre";
         String temp3 = "VIP Normal Normal Normal VIP VIP Normal VIP VIP VIP";
-        String[] nombres = temp.split(" ");
+        String[] nombres = temp.split(",");
         String[] generos = temp2.split(" ");
         String[] tipo = temp3.split(" ");
         Pair  temp4;
         for(int i=0;i<nombres.length;i++){
-            temp4 = new Pair (nombres[i], new Pair(generos[i], tipo[i]));
+            temp4 = new Pair (nombres[i], 
+                    new Pair(generos[i], 
+                            tipo[i]));
             map.put(i,temp4);    
         }
         return map;
