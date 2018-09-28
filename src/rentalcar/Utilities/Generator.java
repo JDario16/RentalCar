@@ -5,6 +5,8 @@
  */
 package rentalcar.Utilities;
 import java.util.*;
+import javafx.util.Pair;
+import rentalcar.Customer;
 import rentalcar.BigFactory;
 import rentalcar.CarFactory;
 /**
@@ -14,7 +16,7 @@ import rentalcar.CarFactory;
 public class Generator {
     public static Stack<CarFactory>[] generadorCar(int tiposCarros, int cantidad){
         Random rand = new Random();
-        int randType, randColor, randMarca, randPlaca;
+        int randType, randColor, randMarca, randPlaca, randCil, randTrans, randPuesto;
         //Stack objects
         Stack<CarFactory> [] stockCar = new Stack[tiposCarros]; 
         for (int i=0; i<tiposCarros; ++i){
@@ -22,12 +24,19 @@ public class Generator {
         }
         HashMap<Integer, String> colors = Data.color();
         HashMap<Integer, String> marcas = Data.marca();
+        HashMap<Integer, String> cilindrajes = Data.cilindraje();
+        HashMap<Integer, String> transm = Data.transmision();
+        HashMap<Integer, String> puestos = Data.puesto();
+        
         for (int i = 0; i < cantidad; i++) {
             randType = rand.nextInt(tiposCarros);
             randColor = rand.nextInt(colors.size());
             randMarca = rand.nextInt(marcas.size());
             randPlaca = rand.nextInt(900) + 100;
-            CarFactory temp = BigFactory.makeFactory(colors.get(randColor), marcas.get(randMarca), ""+randPlaca, randType);
+            randCil = rand.nextInt(cilindrajes.size());
+            randTrans = rand.nextInt(transm.size());
+            randPuesto = rand.nextInt(puestos.size());
+            CarFactory temp = BigFactory.makeFactory(colors.get(randColor), marcas.get(randMarca), ""+randPlaca, cilindrajes.get(randCil), transm.get(randTrans), puestos.get(randPuesto), randType);
             stockCar[randType].push(temp);
         }
         return stockCar;
@@ -37,12 +46,15 @@ public class Generator {
         Random rand = new Random();
         Customer[] customers = new Customer[cantidad];
         Customer customer;
-        int randName, randId;  
-        HashMap<Integer, String> nombres = Tools.nombres();
+        int randName, randId, randGen,randType;  
+        HashMap<Integer, Pair<String, Pair<String, String>>> nombres = Data.nombres();
         for(int i=0; i < cantidad;i++){
             randName = rand.nextInt(nombres.size());
+            randGen = rand.nextInt(nombres.size());
+            randType = rand.nextInt(nombres.size());
             randId = rand.nextInt(900) + 100;
-            customer = new Customer(randId, nombres.get(randName));
+            
+            customer = new Customer(randId, nombres.get(), nombres.get(randGen), nombres.get(randType));
             customers[i] = customer;
         }
         return customers; 
