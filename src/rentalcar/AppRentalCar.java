@@ -18,25 +18,26 @@ public class AppRentalCar {
 
     private static AppRentalCar instance = null;
     private int idRenta;
+    private int cCustomer = rentalcar.Utilities.Data.nombres().size();
 
     //Cantidad de clientes, de carros, y tipos de carro
-    private AppRentalCar(int cCustomer, int cCar, int tCar) {
+    private AppRentalCar(int cCar) {
         this.idRenta = 1;
-        rentalTransation(cCustomer, cCar, tCar);
+        rentalTransation(cCar);
     }
 
-    public static AppRentalCar getInstance(int cCustomer, int cCar, int tCar) {
+    public static AppRentalCar getInstance(int cCar) {
         if (instance == null) {
-            instance = new AppRentalCar(cCustomer, cCar, tCar);
+            instance = new AppRentalCar(cCar);
         }
         return instance;
     }
 
-    private void rentalTransation(int cCustomer, int cCar, int tCar) {
+    private void rentalTransation(int cCar) {
         Random rand = new Random();
         Scanner sc = new Scanner(System.in);
         int cantidadAutos = cCar;
-        Stack<CarFactory>[] carros = Generator.generadorCar(tCar, cantidadAutos);
+        Stack<CarFactory>[] carros = Generator.generadorCar(3, cantidadAutos);
         Customer[] customer = Generator.generadorCustomer(cCustomer);
         int n, m = 0;
         RentalTransaction r;
@@ -47,8 +48,9 @@ public class AppRentalCar {
                 System.out.print("Id de Customer invalido, intente de nuevo: ");
                 n = sc.nextInt();
             }
-
-            System.out.print("Ingrese tipo de Carro: ");
+            System.out.println("Actualmente hay: "+cantidadAutos+" autos en stock");
+            System.out.print("Ingrese tipo de Carro 1.Familiar 2.Deportivo 3.Estandar: ");
+            
             m = sc.nextInt();
             while (m < 1 || m > carros.length) {
                 System.out.print("Tipo de auto invalido, intente de nuevo: ");

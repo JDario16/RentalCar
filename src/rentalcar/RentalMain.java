@@ -11,6 +11,8 @@ import rentalcar.Utilities.Generator;
  */
 public class RentalMain {
     public static void main(String[] args) {
-        AppRentalCar rentalCar = AppRentalCar.getInstance(5, 5, 3);
+        //Numero de carros en stock
+        /*Actualmente hay 3 tipos de carro y 10 clientes registrados*/
+        AppRentalCar rentalCar = AppRentalCar.getInstance(5);
     }
 }
